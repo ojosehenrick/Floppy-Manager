@@ -81,7 +81,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         Utils.DARK_THEME = Prefs.getBoolean("darktheme", false, this);
         int theme;
-        String accent = Prefs.getString("accent_color", "blue_accent", this);
+        String accent = Prefs.getString("accent_color", "green_accent", this);
         if (Utils.DARK_THEME) {
             theme = sAccentDarkColors.get(accent);
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
