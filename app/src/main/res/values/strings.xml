@@ -752,7 +752,7 @@
     <string name="wireguard">WireGuard VPN</string>
 
     <!-- Performance Tweaks -->
-    <string name="spectrum">Performance Tweaks</string>
+    <string name="spectrum">Spectrum</string>
     <string name="profileTile">Profile</string>
     <string name="spec_title">Performance Tweaks</string>
     <string name="spec_info">An adaptation of the Spectrum Manager by frap129.\nSelect one among the available pre-defined profiles.</string>
