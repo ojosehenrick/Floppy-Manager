@@ -1,9 +1,9 @@
-# SmartPack-Kernel Manager
+# Floppy Manager
 
-## SmartPack-Kernel Manager is a modified version of official Kernel Adiutor, which is originally developed by Willi Ye aka Grarak. All the credits goes to the original developer.
+## Floppy Manager is a modified version of official Kernel Adiutor, which is originally developed by Willi Ye aka Grarak. All the credits goes to the original developer.
 
 ## Download
-### ! [Download latest build](https://github.com/SmartPack/SmartPack-Kernel-Manager/blob/master/download/com.smartpack.kernelmanager.apk?raw=true) ! [All builds](https://github.com/SmartPack/SmartPack-Kernel-Manager/releases) !
+* [All builds](https://github.com/JonasCardoso/Floppy-Manager/releases)
 ## Added features over official KA
 
 * CPU Input Boost (Sultanxda).
@@ -30,7 +30,7 @@
 ## Donations
 If you want to appreciate my work, please consider donating to me as it is helpful to continue my projects more active, although it is not at all necessary.
 
-[![PayPal](https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png)](https://www.paypal.me/sunilpaulmathew)
+[![PayPal](https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png)](https://www.paypal.me/floppykernel)
 
 ## Credits
 
