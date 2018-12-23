@@ -44,7 +44,7 @@ public class MSMThermalSimple {
     private static final String[] THERMAL_ZONES = {"zone0", "zone1", "zone2",
 	"zone3", "zone4", "zone5", "zone6", "zone7", "zone8", "zone9", "zone10",
 	"zone11", "zone12", "zone13", "zone14", "zone15", "zone16", "zone17",
-	"zone18", "zone19", "zone20"};
+	"zone18", "zone19", "zone20", "zone21", "zone22"};
 
     public static void enablesimplemsmthermal(boolean enable, Context context) {
         run(Control.write(enable ? "1" : "0", ENABLE), ENABLE, context);
