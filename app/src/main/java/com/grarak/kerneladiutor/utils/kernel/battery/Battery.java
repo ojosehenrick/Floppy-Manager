@@ -70,7 +70,7 @@ public class Battery {
     private static final String CHARGE_LEVEL_WL = CHARGE_LEVEL + "/charge_level_wireless";
     private static final String CHARGE_INFO = CHARGE_LEVEL + "/charge_info";
 
-    private static final String BLX = "/sys/devices/virtual/misc/batterylifeextender/charging_limit";
+    private static final String BLX =  FAST_CHARGE + "/charge_limit";
 
     private static final String CHARGING_CURRENT = "/sys/class/power_supply/battery/current_now";
     private static final String CHARGE_STATUS = "/sys/class/power_supply/battery/status";
