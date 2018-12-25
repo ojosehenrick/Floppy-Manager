@@ -64,9 +64,9 @@ public class DisplayLEDFragment extends RecyclerViewFragment {
 	if (mLED.hasdisplaybacklight()) {
             SeekBarView displaybacklight = new SeekBarView();
             displaybacklight.setTitle(getString(R.string.backlight_max));
-            if ((mLED.getdisplaybacklight() >= 256) && (mLED.getdisplaybacklight() <= 1275)) {
-		// Increase maximum range (Max: 1275; Offset: 25)
-		displaybacklight.setMax(1275);
+            if ((mLED.getdisplaybacklight() >= 256) && (mLED.getdisplaybacklight() <= 4095)) {
+		// Increase maximum range (Max: 4095; Offset: 25)
+		displaybacklight.setMax(4095);
 		displaybacklight.setOffset(25);
 		displaybacklight.setProgress(mLED.getdisplaybacklight() / 25 );
 		displaybacklight.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
