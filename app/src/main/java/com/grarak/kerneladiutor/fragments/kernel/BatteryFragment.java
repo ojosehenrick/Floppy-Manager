@@ -240,7 +240,8 @@ public class BatteryFragment extends RecyclerViewFragment {
             SeekBarView chargeLevelAC = new SeekBarView();
             chargeLevelAC.setTitle(getString(R.string.charge_level_ac));
             chargeLevelAC.setUnit(getString(R.string.ma));
-            chargeLevelAC.setMax(2000);
+            chargeLevelAC.setMax(3000);
+            chargeLevelAC.setMin(900);			
             chargeLevelAC.setOffset(25);
             chargeLevelAC.setProgress(mBattery.getchargeLevelAC() / 25 );
             chargeLevelAC.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {

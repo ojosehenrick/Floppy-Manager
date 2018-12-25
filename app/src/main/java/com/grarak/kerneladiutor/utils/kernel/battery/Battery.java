@@ -65,7 +65,7 @@ public class Battery {
     private static final String FAILSAFE_CONTROL = FAST_CHARGE + "/failsafe";
 
     private static final String CHARGE_LEVEL = "/sys/kernel/charge_levels";
-    private static final String CHARGE_LEVEL_AC = CHARGE_LEVEL + "/charge_level_ac";
+    private static final String CHARGE_LEVEL_AC = FAST_CHARGE + "/maximum_qc_current";
     private static final String CHARGE_LEVEL_USB = CHARGE_LEVEL + "/charge_level_usb";
     private static final String CHARGE_LEVEL_WL = CHARGE_LEVEL + "/charge_level_wireless";
     private static final String CHARGE_INFO = CHARGE_LEVEL + "/charge_info";
