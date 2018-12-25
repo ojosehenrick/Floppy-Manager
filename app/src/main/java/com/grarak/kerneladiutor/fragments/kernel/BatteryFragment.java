@@ -230,12 +230,6 @@ public class BatteryFragment extends RecyclerViewFragment {
             acci.addItem(ScreenLimit);
 	}
 
-        if (mBattery.haschargeLevelAC() || mBattery.haschargeLevelUSB() || mBattery.haschargeLevelWL()) {
-            DescriptionView stockchargelogic = new DescriptionView();
-            stockchargelogic.setTitle(("(") + getString(R.string.stockchargelogic) + (")"));
-            acci.addItem(stockchargelogic);
-        }
-
         if (mBattery.haschargeLevelAC()) {
             SeekBarView chargeLevelAC = new SeekBarView();
             chargeLevelAC.setTitle(getString(R.string.charge_level_ac));
@@ -330,7 +324,7 @@ public class BatteryFragment extends RecyclerViewFragment {
 
         items.add(blx);
     }
-
+	
     private BroadcastReceiver mBatteryReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
