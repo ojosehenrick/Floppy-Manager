@@ -49,7 +49,7 @@ public class DisplayLEDFragment extends RecyclerViewFragment {
 
     @Override
     protected void addItems(List<RecyclerViewItem> items) {
-        if (mLED.hasdisplaybacklight() || mLED.hasBacklightMin() || mLED.hascharginglight() || mLED.hasIntensity()
+        if (mLED.hasdisplaybacklight() || mLED.hasbuttonbacklight() || mLED.hasbuttonbacklight1() || mLED.hasBacklightMin() || mLED.hascharginglight() || mLED.hasIntensity()
 		|| mLED.hasSpeed() || (Sec.hasNotificationRampDown()) || (Sec.hasNotificationRampUp())
 		|| (Sec.hasNotificationRampControl()) || mLED.hasFade() || Sec.hasNotificationDelayOff()
 		|| Sec.hasNotificationDelayOn() || Sec.hasLowpowerCurrent() || Sec.hasHighpowerCurrent()) {
@@ -99,6 +99,55 @@ public class DisplayLEDFragment extends RecyclerViewFragment {
             DisplyAndLED.addItem(displaybacklight);
 	}
 
+//
+
+	if (mLED.hasbuttonbacklight()) {
+            SeekBarView buttonbacklight = new SeekBarView();
+            buttonbacklight.setTitle(getString(R.string.buttonbacklight_max_r));
+            if ((mLED.getbuttonbacklight() >= 0) && (mLED.getbuttonbacklight() <= 256)) {
+		// Increase maximum range (Max: 256; Offset: 1)
+		buttonbacklight.setMax(256);
+		buttonbacklight.setMin(0);		
+		buttonbacklight.setOffset(1);
+		buttonbacklight.setProgress(mLED.getbuttonbacklight() / 1 );
+		buttonbacklight.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+		    @Override
+		    public void onStop(SeekBarView seekBarView, int position, String value) {
+			mLED.setbuttonbacklight((position * 1), getActivity());			
+		    }			
+		    @Override
+		    public void onMove(SeekBarView seekBarView, int position, String value) {
+		    }
+		});
+            }
+
+            DisplyAndLED.addItem(buttonbacklight);
+	}
+	
+	if (mLED.hasbuttonbacklight1()) {
+            SeekBarView buttonbacklight1 = new SeekBarView();
+            buttonbacklight1.setTitle(getString(R.string.buttonbacklight_max_l));
+            if ((mLED.getbuttonbacklight1() >= 0) && (mLED.getbuttonbacklight1() <= 256)) {
+		// Increase maximum range (Max: 256; Offset: 1)
+		buttonbacklight1.setMax(256);
+		buttonbacklight1.setMin(0);		
+		buttonbacklight1.setOffset(1);
+		buttonbacklight1.setProgress(mLED.getbuttonbacklight1() / 1 );
+		buttonbacklight1.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+		    @Override
+		    public void onStop(SeekBarView seekBarView, int position, String value) {
+			mLED.setbuttonbacklight1((position * 1), getActivity());			
+		    }	
+		    @Override
+		    public void onMove(SeekBarView seekBarView, int position, String value) {
+		    }
+		});
+            }
+
+            DisplyAndLED.addItem(buttonbacklight1);
+	}
+
+//
 	if (mLED.hasBacklightMin()) {
             SeekBarView BacklightMin = new SeekBarView();
             BacklightMin.setTitle(getString(R.string.backlight_min));

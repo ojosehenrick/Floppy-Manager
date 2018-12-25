@@ -51,6 +51,8 @@ public class LED {
     private static final String GREEN_RATE = "/sys/class/leds/green/rate";
 
     private static final String DISPLAY_BACKLIGHT = "/sys/class/leds/lcd-backlight/max_brightness";
+	private static final String BUTTON_BACKLIGHT = "/sys/class/leds/button-backlight/max_brightness";
+    private static final String BUTTON_BACKLIGHT1 = "/sys/class/leds/button-backlight1/max_brightness";
     private static final String BACKLIGHT_MIN = "/sys/module/mdss_fb/parameters/backlight_min";
     private static final String CHARGING_LIGHT = "/sys/class/leds/charging/max_brightness";
     private static final String CHARGING_LIGHT_2 = "/sys/class/sec/led/led_intensity";
@@ -163,6 +165,34 @@ public class LED {
     public static boolean hasdisplaybacklight() {
         return Utils.existFile(DISPLAY_BACKLIGHT);
     }
+	
+//
+
+    public void setbuttonbacklight(int value, Context context) {
+        run(Control.write(String.valueOf(value), BUTTON_BACKLIGHT), BUTTON_BACKLIGHT, context);
+    }
+
+    public static int getbuttonbacklight() {
+        return Utils.strToInt(Utils.readFile(BUTTON_BACKLIGHT));
+    }
+
+    public static boolean hasbuttonbacklight() {
+        return Utils.existFile(BUTTON_BACKLIGHT);
+    }
+	
+	public void setbuttonbacklight1(int value, Context context) {
+        run(Control.write(String.valueOf(value), BUTTON_BACKLIGHT1), BUTTON_BACKLIGHT1, context);
+    }
+
+    public static int getbuttonbacklight1() {
+        return Utils.strToInt(Utils.readFile(BUTTON_BACKLIGHT1));
+    }
+
+    public static boolean hasbuttonbacklight1() {
+        return Utils.existFile(BUTTON_BACKLIGHT1);
+    }
+
+//	
 
     public void setBacklightMin(int value, Context context) {
         run(Control.write(String.valueOf(value), BACKLIGHT_MIN), BACKLIGHT_MIN, context);
@@ -193,7 +223,7 @@ public class LED {
     }
 
     public boolean supported() {
-        return hasFade() || hasdisplaybacklight() || hasBacklightMin() || hascharginglight()
+        return hasFade() || hasdisplaybacklight() || hasbuttonbacklight() || hasbuttonbacklight1() || hasBacklightMin() || hascharginglight()
 		|| hasIntensity() || hasSpeed() || Sec.supported();
     }
 
