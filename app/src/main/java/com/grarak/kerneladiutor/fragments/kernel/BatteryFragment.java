@@ -73,11 +73,8 @@ public class BatteryFragment extends RecyclerViewFragment {
         if (Battery.haschargingstatus()) {
         items.add(mChargingStatus);
         }
-        if (mBattery.hasbatterychargelimit() || mBattery.hasFastCharge() || mBattery.haschargeLevel()) {
+        if (mBattery.hasbatterychargelimit() || mBattery.hasFastCharge() || mBattery.haschargeLevel() || (mBattery.hasBlx())) {
             acciInit(items);
-        }
-        if (mBattery.hasBlx()) {
-            blxInit(items);
         }
     }
 
@@ -294,36 +291,38 @@ public class BatteryFragment extends RecyclerViewFragment {
             acci.addItem(chargeLevelWL);
         }
 
+        if (mBattery.hasBlx()) {
+			List<String> list = new ArrayList<>();
+			list.add(getString(R.string.disabled));
+			for (int i = 0; i <= 100; i++) {
+				list.add(String.valueOf(i));
+			}
+
+			SeekBarView blx = new SeekBarView();
+			blx.setTitle(getString(R.string.blx));
+			blx.setSummary(getString(R.string.blx_summary));
+			blx.setItems(list);
+			blx.setProgress(mBattery.getBlx());
+			blx.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
+				@Override
+				public void onStop(SeekBarView seekBarView, int position, String value) {
+					mBattery.setBlx(position, getActivity());
+				}
+
+				@Override
+				public void onMove(SeekBarView seekBarView, int position, String value) {
+				}
+			});
+
+			acci.addItem(blx);
+		
+		}
+	
         if (acci.size() > 0) {
             items.add(acci);
         }
     }
 
-    private void blxInit(List<RecyclerViewItem> items) {
-        List<String> list = new ArrayList<>();
-        list.add(getString(R.string.disabled));
-        for (int i = 0; i <= 100; i++) {
-            list.add(String.valueOf(i));
-        }
-
-        SeekBarView blx = new SeekBarView();
-        blx.setTitle(getString(R.string.blx));
-        blx.setSummary(getString(R.string.blx_summary));
-        blx.setItems(list);
-        blx.setProgress(mBattery.getBlx());
-        blx.setOnSeekBarListener(new SeekBarView.OnSeekBarListener() {
-            @Override
-            public void onStop(SeekBarView seekBarView, int position, String value) {
-                mBattery.setBlx(position, getActivity());
-            }
-
-            @Override
-            public void onMove(SeekBarView seekBarView, int position, String value) {
-            }
-        });
-
-        items.add(blx);
-    }
 	
     private BroadcastReceiver mBatteryReceiver = new BroadcastReceiver() {
         @Override
