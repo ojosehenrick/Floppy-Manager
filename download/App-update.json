@@ -1,11 +1,10 @@
 {
-  "latestVersion": "0.9.10.3-22122018",
-  "url": "https://github.com/JonasCardoso/Floppy-Manager/releases",
+  "latestVersion": "0.9.10.3-26122018",
+  "url": "https://github.com/JonasCardoso/Floppy-Manager/blob/master/download/com.jonas.floppymanager-v0.9.10.3-26122018.apk?raw=true",
   "releaseNotes": [
     "Change-log:",
-    "- SmartPack: Latest version: Improved update information.",
-    "- build: promote target SDK Version to 28 (Pie).",
-    "- Switch Thermal, IO, Entropy, Display & LED pages into card view (visual improvements).",
+    "- LED section adapted to msm8996/pro (xiaomi)",
+    "- Battery section adapted to msm8996/pro (xiaomi)",
     "- Many other internal improvement." 
   ]
 }
