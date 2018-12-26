@@ -47,9 +47,9 @@ public class Misc {
     private static final String DYNAMIC_FSYNC = "/sys/kernel/dyn_fsync/Dyn_fsync_active";
     private static final String GENTLE_FAIR_SLEEPERS = "/sys/kernel/sched/gentle_fair_sleepers";
     private static final String ARCH_POWER = "/sys/kernel/sched/arch_power";
+    private static final String FP_BOOST = "/sys/kernel/fp_boost/enabled";	
     private static final String SELINUX = "/sys/fs/selinux/enforce";
     private static final String TCP_AVAILABLE_CONGESTIONS = "/proc/sys/net/ipv4/tcp_available_congestion_control";
-
     private static final String WIREGUARD = "/sys/module/wireguard/version";
 
     private static final String HOSTNAME_KEY = "net.hostname";
@@ -130,6 +130,20 @@ public class Misc {
     public boolean hasArchPower() {
         return Utils.existFile(ARCH_POWER);
     }
+	
+//    
+	public void enableFPBoost(boolean enable, Context context) {
+        run(Control.write(enable ? "1" : "0", FP_BOOST), FP_BOOST, context);
+    }
+
+    public boolean isFPBoostEnabled() {
+        return Utils.readFile(FP_BOOST).equals("1");
+    }
+
+    public boolean hasFPBoost() {
+        return Utils.existFile(FP_BOOST);
+    }
+//
 
     public void enableSELinux(boolean enable, Context context) {
         run(Control.write(enable ? "1" : "0", SELINUX), SELINUX, context);

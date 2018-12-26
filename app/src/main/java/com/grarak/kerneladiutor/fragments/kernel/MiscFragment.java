@@ -76,6 +76,9 @@ public class MiscFragment extends RecyclerViewFragment {
         if (mMisc.hasArchPower()) {
             archPowerInit(items);
         }
+        if (mMisc.hasFPBoost()) {
+            fpBoostInit(items);
+        }		
         if (mMisc.hasSELinux()) {
             selinuxInit(items);
         }
@@ -209,7 +212,22 @@ public class MiscFragment extends RecyclerViewFragment {
 
         items.add(archPower);
     }
+//	
+    private void fpBoostInit(List<RecyclerViewItem> items) {
+        SwitchView fpBoost = new SwitchView();
+        fpBoost.setTitle(getString(R.string.fp_boost));
+        fpBoost.setSummary(getString(R.string.fp_boost_summary));
+        fpBoost.setChecked(mMisc.isFPBoostEnabled());
+        fpBoost.addOnSwitchListener(new SwitchView.OnSwitchListener() {
+            @Override
+            public void onChanged(SwitchView switchView, boolean isChecked) {
+                mMisc.enableFPBoost(isChecked, getActivity());
+            }
+        });
 
+        items.add(fpBoost);
+    }	
+//
     private void selinuxInit(List<RecyclerViewItem> items) {
         SwitchView selinux = new SwitchView();
         selinux.setTitle(getString(R.string.selinux_switch));
