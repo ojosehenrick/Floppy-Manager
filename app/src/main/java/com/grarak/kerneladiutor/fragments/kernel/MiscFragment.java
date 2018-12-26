@@ -85,6 +85,9 @@ public class MiscFragment extends RecyclerViewFragment {
         if (PowerSuspend.supported()) {
             powersuspendInit(items);
         }
+		if (mMisc.hasUCBalanced() || mMisc.hasUCBattery()) {
+			underclockInit(items);
+		}
         networkInit(items);
     }
 
@@ -212,7 +215,7 @@ public class MiscFragment extends RecyclerViewFragment {
 
         items.add(archPower);
     }
-//	
+	
     private void fpBoostInit(List<RecyclerViewItem> items) {
         SwitchView fpBoost = new SwitchView();
         fpBoost.setTitle(getString(R.string.fp_boost));
@@ -227,7 +230,7 @@ public class MiscFragment extends RecyclerViewFragment {
 
         items.add(fpBoost);
     }	
-//
+
     private void selinuxInit(List<RecyclerViewItem> items) {
         SwitchView selinux = new SwitchView();
         selinux.setTitle(getString(R.string.selinux_switch));
@@ -296,6 +299,43 @@ public class MiscFragment extends RecyclerViewFragment {
         }
     }
 
+    private void underclockInit(List<RecyclerViewItem> items) {
+        CardView underclockCard = new CardView(getActivity());
+        underclockCard.setTitle(getString(R.string.underclock));
+
+		if (mMisc.hasUCBalanced()) {
+			SwitchView ucBalanced = new SwitchView();
+			ucBalanced.setTitle(getString(R.string.underclock_balanced));
+			ucBalanced.setSummary(getString(R.string.underclock_balanced_sumary));
+			ucBalanced.setChecked(mMisc.isUCBalancedEnabled());
+			ucBalanced.addOnSwitchListener(new SwitchView.OnSwitchListener() {
+				@Override
+				public void onChanged(SwitchView switchView, boolean isChecked) {
+					mMisc.enableUCBalanced(isChecked, getActivity());
+				}
+			});
+
+			underclockCard.addItem(ucBalanced);
+		}
+		
+		if (mMisc.hasUCBattery()) {
+			SwitchView ucBattery = new SwitchView();
+			ucBattery.setTitle(getString(R.string.underclock_battery));
+			ucBattery.setSummary(getString(R.string.underclock_battery_sumary));
+			ucBattery.setChecked(mMisc.isUCBatteryEnabled());
+			ucBattery.addOnSwitchListener(new SwitchView.OnSwitchListener() {
+				@Override
+				public void onChanged(SwitchView switchView, boolean isChecked) {
+					mMisc.enableUCBattery(isChecked, getActivity());
+				}
+			});
+
+			underclockCard.addItem(ucBattery);
+		}
+		
+		items.add(underclockCard);
+    }	
+	
     private void networkInit(List<RecyclerViewItem> items) {
         CardView networkCard = new CardView(getActivity());
         networkCard.setTitle(getString(R.string.network));

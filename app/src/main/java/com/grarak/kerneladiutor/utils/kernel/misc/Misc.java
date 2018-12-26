@@ -49,6 +49,8 @@ public class Misc {
     private static final String ARCH_POWER = "/sys/kernel/sched/arch_power";
     private static final String FP_BOOST = "/sys/kernel/fp_boost/enabled";	
     private static final String SELINUX = "/sys/fs/selinux/enforce";
+	private static final String UC_BALANCED = "/sys/module/cpufreq/parameters/enable_underclock_balanced";
+    private static final String UC_BATTERY = "/sys/module/cpufreq/parameters/enable_underclock_battery";
     private static final String TCP_AVAILABLE_CONGESTIONS = "/proc/sys/net/ipv4/tcp_available_congestion_control";
     private static final String WIREGUARD = "/sys/module/wireguard/version";
 
@@ -130,8 +132,7 @@ public class Misc {
     public boolean hasArchPower() {
         return Utils.existFile(ARCH_POWER);
     }
-	
-//    
+	    
 	public void enableFPBoost(boolean enable, Context context) {
         run(Control.write(enable ? "1" : "0", FP_BOOST), FP_BOOST, context);
     }
@@ -143,7 +144,30 @@ public class Misc {
     public boolean hasFPBoost() {
         return Utils.existFile(FP_BOOST);
     }
-//
+
+	public void enableUCBalanced(boolean enable, Context context) {
+        run(Control.write(enable ? "Y" : "N", UC_BALANCED), UC_BALANCED, context);
+    }
+
+    public boolean isUCBalancedEnabled() {
+        return Utils.readFile(UC_BALANCED).equals("Y");
+    }
+
+    public boolean hasUCBalanced() {
+        return Utils.existFile(UC_BALANCED);
+    }
+	
+	public void enableUCBattery(boolean enable, Context context) {
+        run(Control.write(enable ? "Y" : "N", UC_BATTERY), UC_BATTERY, context);
+    }
+
+    public boolean isUCBatteryEnabled() {
+        return Utils.readFile(UC_BATTERY).equals("Y");
+    }
+
+    public boolean hasUCBattery() {
+        return Utils.existFile(UC_BATTERY);
+    }
 
     public void enableSELinux(boolean enable, Context context) {
         run(Control.write(enable ? "1" : "0", SELINUX), SELINUX, context);
