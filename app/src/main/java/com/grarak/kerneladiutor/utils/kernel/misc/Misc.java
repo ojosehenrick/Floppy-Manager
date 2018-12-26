@@ -47,6 +47,7 @@ public class Misc {
     private static final String DYNAMIC_FSYNC = "/sys/kernel/dyn_fsync/Dyn_fsync_active";
     private static final String GENTLE_FAIR_SLEEPERS = "/sys/kernel/sched/gentle_fair_sleepers";
     private static final String ARCH_POWER = "/sys/kernel/sched/arch_power";
+	private static final String FP_WAKE = "/sys/devices/soc/soc:fpc_fpc1020/enable_wakeup";	
     private static final String FP_BOOST = "/sys/kernel/fp_boost/enabled";	
     private static final String SELINUX = "/sys/fs/selinux/enforce";
 	private static final String UC_BALANCED = "/sys/module/cpufreq/parameters/enable_underclock_balanced";
@@ -132,7 +133,19 @@ public class Misc {
     public boolean hasArchPower() {
         return Utils.existFile(ARCH_POWER);
     }
-	    
+
+	public void enableFPWake(boolean enable, Context context) {
+        run(Control.write(enable ? "1" : "0", FP_WAKE), FP_WAKE, context);
+    }
+
+    public boolean isFPWakeEnabled() {
+        return Utils.readFile(FP_WAKE).equals("1");
+    }
+
+    public boolean hasFPWake() {
+        return Utils.existFile(FP_WAKE);
+    }
+	
 	public void enableFPBoost(boolean enable, Context context) {
         run(Control.write(enable ? "1" : "0", FP_BOOST), FP_BOOST, context);
     }
