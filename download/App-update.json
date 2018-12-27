@@ -1,10 +1,10 @@
 {
-  "latestVersion": "0.9.10.3-26122018",
-  "url": "https://github.com/JonasCardoso/Floppy-Manager/blob/master/download/com.jonas.floppymanager-v0.9.10.3-26122018.apk?raw=true",
+  "latestVersion": "0.9.10.3-27122018",
+  "url": "https://github.com/JonasCardoso/Floppy-Manager/blob/master/download/com.jonas.floppymanager-v0.9.10.3-27122018.apk?raw=true",
   "releaseNotes": [
     "Change-log:",
-    "- LED section adapted to msm8996/pro (xiaomi)",
-    "- Battery section adapted to msm8996/pro (xiaomi)",
-    "- Many other internal improvement." 
+    "- Misc: added fingerprint boost",
+    "- Misc: added support to Underclock",
+    "- Misc: added FP wake." 
   ]
 }
