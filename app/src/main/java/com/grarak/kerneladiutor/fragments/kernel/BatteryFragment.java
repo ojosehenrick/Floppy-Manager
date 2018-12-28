@@ -39,7 +39,6 @@ import com.grarak.kerneladiutor.views.recyclerview.SeekBarView;
 import com.grarak.kerneladiutor.views.recyclerview.SelectView;
 import com.grarak.kerneladiutor.views.recyclerview.StatsView;
 import com.grarak.kerneladiutor.views.recyclerview.SwitchView;
-import com.grarak.kerneladiutor.views.recyclerview.TitleView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,9 +70,9 @@ public class BatteryFragment extends RecyclerViewFragment {
         voltageInit(items);
         mChargingStatus = new StatsView();
         if (Battery.haschargingstatus()) {
-        items.add(mChargingStatus);
+            items.add(mChargingStatus);
         }
-        if (mBattery.hasbatterychargelimit() || mBattery.hasFastCharge() || mBattery.haschargeLevel() || (mBattery.hasBlx())) {
+        if (mBattery.hasbatterychargelimit() || mBattery.hasFastCharge() || mBattery.haschargeLevel() || mBattery.hasBlx()) {
             acciInit(items);
         }
     }
@@ -317,7 +316,6 @@ public class BatteryFragment extends RecyclerViewFragment {
 			acci.addItem(blx);
 		
 		}
-	
         if (acci.size() > 0) {
             items.add(acci);
         }
