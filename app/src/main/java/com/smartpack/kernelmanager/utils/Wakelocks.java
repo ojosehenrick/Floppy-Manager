@@ -100,22 +100,22 @@ public class Wakelocks {
     }
 
     public static void setWakelockAllowed(String wakelock, Context context){
-        String list = "";
+        StringBuilder list = new StringBuilder();
         try {
             String[] wakes = Utils.readFile(WAKELOCK_BLOCKER).split(";");
             for(String wake : wakes){
                 if(!wake.contentEquals(wakelock)){
-                    if (list.contentEquals("")) {
-                        list = wake;
+                    if (list.toString().contentEquals("")) {
+                        list = new StringBuilder(wake);
                     } else {
-                        list += ";" + wake;
+                        list.append(";").append(wake);
                     }
                 }
             }
         } catch (Exception ignored){
         }
 
-        run(Control.write(list, WAKELOCK_BLOCKER), WAKELOCK_BLOCKER, context);
+        run(Control.write(list.toString(), WAKELOCK_BLOCKER), WAKELOCK_BLOCKER, context);
     }
 
     public static int getWakelockOrder(){
