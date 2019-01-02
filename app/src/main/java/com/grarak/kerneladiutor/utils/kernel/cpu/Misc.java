@@ -47,6 +47,13 @@ public class Misc {
 
     private static final String CPU_TOUCH_BOOST = "/sys/module/msm_performance/parameters/touchboost";
 
+    private static final String DYN_STUNE_BOOST = "/sys/module/cpu_boost/parameters/dynamic_stune_boost";
+
+    private static final String ADVANCED = "/dev/stune";
+
+    private static final String[] STUNE = {"schedtune.sched_boost", "top-app/schedtune.sched_boost",
+	"foreground/schedtune.sched_boost", "background/schedtune.sched_boost", "rt/schedtune.sched_boost"};
+
     private static String[] sAvailableCFSSchedulers;
     private static String[] sCpuQuietAvailableGovernors;
 
@@ -60,6 +67,39 @@ public class Misc {
 
     public static boolean hasCpuTouchBoost() {
         return Utils.existFile(CPU_TOUCH_BOOST);
+    }
+
+    public static void setDynStuneBoost(int value, Context context) {
+        run(Control.write(String.valueOf(value), DYN_STUNE_BOOST), DYN_STUNE_BOOST, context);
+    }
+
+    public static int getDynStuneBoost() {
+        return Utils.strToInt(Utils.readFile(DYN_STUNE_BOOST));
+    }
+
+    public static boolean hasDynStuneBoost() {
+        return Utils.existFile(DYN_STUNE_BOOST);
+    }
+
+    public static void setValue(String value, int position, Context context) {
+        run(Control.write(value, ADVANCED + "/" + STUNE[position]), ADVANCED + "/" +
+                STUNE[position], context);
+    }
+
+    public static String getValue(int position) {
+        return Utils.readFile(ADVANCED + "/" + STUNE[position]);
+    }
+
+    public static String getName(int position) {
+        return STUNE[position];
+    }
+
+    public static boolean exists(int position) {
+        return Utils.existFile(ADVANCED + "/" + STUNE[position]);
+    }
+
+    public static int size() {
+        return STUNE.length;
     }
 
     public static void setCpuQuietGovernor(String value, Context context) {
