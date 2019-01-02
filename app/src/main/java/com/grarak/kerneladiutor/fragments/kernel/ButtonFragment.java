@@ -55,7 +55,7 @@ public class ButtonFragment extends RecyclerViewFragment {
 	
     @Override
     protected void addItems(List<RecyclerViewItem> items) {
-		if (mButton.hasFPWake() || mButton.hasFPBoost()) {
+		if (mButton.hasFPWake() || mButton.hasFPBoost() || mButton.hasFPHome()) {
 			fpInit(items);
 		}	
     }
@@ -100,6 +100,22 @@ public class ButtonFragment extends RecyclerViewFragment {
 			});
 			
 			fpCard.addItem(fpBoost);
+
+		}
+		
+		if (mButton.hasFPHome()) {
+			SwitchView fpHome = new SwitchView();
+			fpHome.setTitle(getString(R.string.fp_home));
+			fpHome.setSummary(getString(R.string.fp_home_summary));
+			fpHome.setChecked(mButton.isFPHomeEnabled());
+			fpHome.addOnSwitchListener(new SwitchView.OnSwitchListener() {
+				@Override
+				public void onChanged(SwitchView switchView, boolean isChecked) {
+					mButton.enableFPHome(isChecked, getActivity());
+				}
+			});
+			
+			fpCard.addItem(fpHome);
 
 		}
 		

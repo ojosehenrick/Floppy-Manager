@@ -622,6 +622,8 @@
     <string name="fp_wake_summary">Enable Fingerprint Wake for operations with screen off.</string>
 	<string name="fp_boost">Fingerprint Boost</string>
     <string name="fp_boost_summary">Enable Fingerprint Boost for faster FP operations.</string>
+	<string name="fp_home">Fingerprint Home</string>
+    <string name="fp_home_summary">Enable Fingerprint Home for events operations.</string>
 	
     <!-- I/O Scheduler -->
     <string name="internal_storage">Internal Storage</string>

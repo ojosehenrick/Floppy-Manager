@@ -46,7 +46,8 @@ public class Button {
 
 	private static final String FP_WAKE = "/sys/devices/soc/soc:fpc_fpc1020/enable_wakeup";	
     private static final String FP_BOOST = "/sys/kernel/fp_boost/enabled";	
-
+    private static final String FP_HOME = "/sys/devices/soc/soc:fpc_fpc1020/enable_key_events";
+	
 	public void enableFPWake(boolean enable, Context context) {
         run(Control.write(enable ? "1" : "0", FP_WAKE), FP_WAKE, context);
     }
@@ -71,8 +72,20 @@ public class Button {
         return Utils.existFile(FP_BOOST);
     }
 
+	public void enableFPHome(boolean enable, Context context) {
+        run(Control.write(enable ? "1" : "0", FP_HOME), FP_HOME, context);
+    }
+
+    public boolean isFPHomeEnabled() {
+        return Utils.readFile(FP_HOME).equals("1");
+    }
+
+    public boolean hasFPHome() {
+        return Utils.existFile(FP_HOME);
+    }
+	
     public boolean supported() {
-        return hasFPWake() || hasFPBoost();
+        return hasFPWake() || hasFPBoost() || hasFPHome();
     }
 	
     private void run(String command, String id, Context context) {
