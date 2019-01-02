@@ -61,6 +61,7 @@ import com.grarak.kerneladiutor.fragments.kernel.KSMFragment;
 import com.grarak.kerneladiutor.fragments.kernel.DisplayLEDFragment;
 import com.grarak.kerneladiutor.fragments.kernel.LMKFragment;
 import com.grarak.kerneladiutor.fragments.kernel.MiscFragment;
+import com.grarak.kerneladiutor.fragments.kernel.ButtonFragment;
 import com.grarak.kerneladiutor.fragments.kernel.ScreenFragment;
 import com.grarak.kerneladiutor.fragments.kernel.SoundFragment;
 import com.grarak.kerneladiutor.fragments.kernel.ThermalFragment;
@@ -96,6 +97,7 @@ import com.grarak.kerneladiutor.utils.kernel.screen.Screen;
 import com.grarak.kerneladiutor.utils.kernel.sound.Sound;
 import com.grarak.kerneladiutor.utils.kernel.thermal.Thermal;
 import com.grarak.kerneladiutor.utils.kernel.wake.Wake;
+import com.grarak.kerneladiutor.utils.kernel.button.Button;
 import com.grarak.kerneladiutor.utils.root.RootUtils;
 import com.grarak.kerneladiutor.utils.tools.Backup;
 
@@ -206,6 +208,9 @@ public class NavigationActivity extends BaseActivity
         }
         if (LED.getInstance().supported()) {
             mFragments.add(new NavigationActivity.NavigationFragment(R.string.led, DisplayLEDFragment.class, R.drawable.ic_led));
+        }
+        if (Button.getInstance(this).supported()) {
+            mFragments.add(new NavigationActivity.NavigationFragment(R.string.button, ButtonFragment.class, R.drawable.ic_keyboard));
         }
         if (IO.getInstance().supported()) {
             mFragments.add(new NavigationActivity.NavigationFragment(R.string.io_scheduler, IOFragment.class, R.drawable.ic_sdcard));

@@ -42,6 +42,7 @@ import com.grarak.kerneladiutor.fragments.kernel.KSMFragment;
 import com.grarak.kerneladiutor.fragments.kernel.DisplayLEDFragment;
 import com.grarak.kerneladiutor.fragments.kernel.LMKFragment;
 import com.grarak.kerneladiutor.fragments.kernel.MiscFragment;
+import com.grarak.kerneladiutor.fragments.kernel.ButtonFragment;
 import com.grarak.kerneladiutor.fragments.kernel.ScreenFragment;
 import com.grarak.kerneladiutor.fragments.kernel.SoundFragment;
 import com.grarak.kerneladiutor.fragments.kernel.ThermalFragment;
@@ -75,6 +76,7 @@ public class ApplyOnBootFragment extends BaseFragment {
     public static final String VM = "vm_onboot";
     public static final String ENTROPY = "entropy_onboot";
     public static final String MISC = "misc_onboot";
+    public static final String BUTTON = "button_onboot";
 
     private static final HashMap<Class, String> sAssignments = new HashMap<>();
 
@@ -96,6 +98,7 @@ public class ApplyOnBootFragment extends BaseFragment {
         sAssignments.put(VMFragment.class, VM);
         sAssignments.put(EntropyFragment.class, ENTROPY);
         sAssignments.put(MiscFragment.class, MISC);
+        sAssignments.put(ButtonFragment.class, BUTTON);		
     }
 
     public static String getAssignment(Class fragment) {

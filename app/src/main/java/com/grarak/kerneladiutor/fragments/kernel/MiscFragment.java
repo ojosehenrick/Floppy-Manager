@@ -79,9 +79,6 @@ public class MiscFragment extends RecyclerViewFragment {
 		if (mMisc.hasSELinux()) {
             selinuxInit(items);
         }
-		if (mMisc.hasFPWake() || mMisc.hasFPBoost()) {
-			fpInit(items);
-		}	
         if (PowerSuspend.supported()) {
             powersuspendInit(items);
         }
@@ -282,45 +279,6 @@ public class MiscFragment extends RecyclerViewFragment {
 
             items.add(state);
         }
-    }
-
-    private void fpInit(List<RecyclerViewItem> items) {
-        CardView fpCard = new CardView(getActivity());
-        fpCard.setTitle(getString(R.string.fp));
-
-		if (mMisc.hasFPWake()) {
-			SwitchView fpWake = new SwitchView();
-			fpWake.setTitle(getString(R.string.fp_wake));
-			fpWake.setSummary(getString(R.string.fp_wake_summary));
-			fpWake.setChecked(mMisc.isFPWakeEnabled());
-			fpWake.addOnSwitchListener(new SwitchView.OnSwitchListener() {
-				@Override
-				public void onChanged(SwitchView switchView, boolean isChecked) {
-					mMisc.enableFPWake(isChecked, getActivity());
-				}
-			});
-			
-			fpCard.addItem(fpWake);
-
-		}
-		
-		if (mMisc.hasFPBoost()) {
-			SwitchView fpBoost = new SwitchView();
-			fpBoost.setTitle(getString(R.string.fp_boost));
-			fpBoost.setSummary(getString(R.string.fp_boost_summary));
-			fpBoost.setChecked(mMisc.isFPBoostEnabled());
-			fpBoost.addOnSwitchListener(new SwitchView.OnSwitchListener() {
-				@Override
-				public void onChanged(SwitchView switchView, boolean isChecked) {
-					mMisc.enableFPBoost(isChecked, getActivity());
-				}
-			});
-			
-			fpCard.addItem(fpBoost);
-
-		}
-		
-		items.add(fpCard);
     }
 
     private void underclockInit(List<RecyclerViewItem> items) {
