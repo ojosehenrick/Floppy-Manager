@@ -627,6 +627,8 @@
     <string name="button_capacitive">Button Capacitive</string>
 	<string name="button_capacitive_swap">Button Capacitive Swap</string>
     <string name="button_capacitive_swap_summary">Enable Button Capacitive Swap for switch the order of recents and back buttons.</string>
+	<string name="button_capacitive_virtual">Button Capacitive Virtual</string>
+    <string name="button_capacitive_virtual_summary">Enable Button Capacitive Virtual for use as a recents and back buttons.</string>
 	
     <!-- I/O Scheduler -->
     <string name="internal_storage">Internal Storage</string>

@@ -49,6 +49,7 @@ public class Button {
     private static final String FP_HOME = "/sys/devices/soc/soc:fpc_fpc1020/enable_key_events";
 	private static final String CYTTSP_BUTTON = "/proc/buttons/reversed_keys_enable";
 	private static final String TOUCHPANEL_BUTTON = "/proc/touchpanel/reversed_keys_enable";
+	private static final String VIRTUAL_KEY = "/proc/touchpanel/capacitive_keys_enable";
 	
 	public void enableFPWake(boolean enable, Context context) {
         run(Control.write(enable ? "1" : "0", FP_WAKE), FP_WAKE, context);
@@ -110,8 +111,20 @@ public class Button {
         return Utils.existFile(TOUCHPANEL_BUTTON);
     }
 	
+	public void enableVIRTUALKey(boolean enable, Context context) {
+        run(Control.write(enable ? "1" : "0", VIRTUAL_KEY), VIRTUAL_KEY, context);
+    }
+
+    public boolean isVIRTUALKeyEnabled() {
+        return Utils.readFile(VIRTUAL_KEY).equals("1");
+    }
+
+    public boolean hasVIRTUALKey() {
+        return Utils.existFile(VIRTUAL_KEY);
+    }
+	
     public boolean supported() {
-        return hasFPWake() || hasFPBoost() || hasFPHome() || hasCYTTSPButton() || hasTOUCHPANELButton();
+        return hasFPWake() || hasFPBoost() || hasFPHome() || hasCYTTSPButton() || hasTOUCHPANELButton() || hasVIRTUALKey();
     }
 	
     private void run(String command, String id, Context context) {

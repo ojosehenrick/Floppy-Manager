@@ -59,7 +59,7 @@ public class ButtonFragment extends RecyclerViewFragment {
 			fpInit(items);
 		}	
 		
-		if (mButton.hasCYTTSPButton() || mButton.hasTOUCHPANELButton()) {
+		if (mButton.hasCYTTSPButton() || mButton.hasTOUCHPANELButton() || mButton.hasVIRTUALKey()) {
 			buttonInit(items);			
         }	
     }
@@ -161,7 +161,22 @@ public class ButtonFragment extends RecyclerViewFragment {
 			buttonCard.addItem(touchpanelButton);
 
 		}
-		
+
+		if (mButton.hasVIRTUALKey()) {
+			SwitchView virtualKey = new SwitchView();
+			virtualKey.setTitle(getString(R.string.button_capacitive_virtual));
+			virtualKey.setSummary(getString(R.string.button_capacitive_virtual_summary));
+			virtualKey.setChecked(mButton.isVIRTUALKeyEnabled());
+			virtualKey.addOnSwitchListener(new SwitchView.OnSwitchListener() {
+				@Override
+				public void onChanged(SwitchView switchView, boolean isChecked) {
+					mButton.enableVIRTUALKey(isChecked, getActivity());
+				}
+			});
+			
+			buttonCard.addItem(virtualKey);
+
+		}		
 		items.add(buttonCard);
     }
 }
