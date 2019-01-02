@@ -47,6 +47,8 @@ public class Button {
 	private static final String FP_WAKE = "/sys/devices/soc/soc:fpc_fpc1020/enable_wakeup";	
     private static final String FP_BOOST = "/sys/kernel/fp_boost/enabled";	
     private static final String FP_HOME = "/sys/devices/soc/soc:fpc_fpc1020/enable_key_events";
+	private static final String CYTTSP_BUTTON = "/proc/buttons/reversed_keys_enable";
+	private static final String TOUCHPANEL_BUTTON = "/proc/touchpanel/reversed_keys_enable";
 	
 	public void enableFPWake(boolean enable, Context context) {
         run(Control.write(enable ? "1" : "0", FP_WAKE), FP_WAKE, context);
@@ -84,8 +86,32 @@ public class Button {
         return Utils.existFile(FP_HOME);
     }
 	
+	public void enableCYTTSPButton(boolean enable, Context context) {
+        run(Control.write(enable ? "1" : "0", CYTTSP_BUTTON), CYTTSP_BUTTON, context);
+    }
+
+    public boolean isCYTTSPButtonEnabled() {
+        return Utils.readFile(CYTTSP_BUTTON).equals("1");
+    }
+
+    public boolean hasCYTTSPButton() {
+        return Utils.existFile(CYTTSP_BUTTON);
+    }
+
+	public void enableTOUCHPANELButton(boolean enable, Context context) {
+        run(Control.write(enable ? "1" : "0", TOUCHPANEL_BUTTON), TOUCHPANEL_BUTTON, context);
+    }
+
+    public boolean isTOUCHPANELButtonEnabled() {
+        return Utils.readFile(TOUCHPANEL_BUTTON).equals("1");
+    }
+
+    public boolean hasTOUCHPANELButton() {
+        return Utils.existFile(TOUCHPANEL_BUTTON);
+    }
+	
     public boolean supported() {
-        return hasFPWake() || hasFPBoost() || hasFPHome();
+        return hasFPWake() || hasFPBoost() || hasFPHome() || hasCYTTSPButton() || hasTOUCHPANELButton();
     }
 	
     private void run(String command, String id, Context context) {

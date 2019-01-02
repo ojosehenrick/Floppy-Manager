@@ -623,7 +623,10 @@
 	<string name="fp_boost">Fingerprint Boost</string>
     <string name="fp_boost_summary">Enable Fingerprint Boost for faster FP operations.</string>
 	<string name="fp_home">Fingerprint Home</string>
-    <string name="fp_home_summary">Enable Fingerprint Home for events operations.</string>
+    <string name="fp_home_summary">Enable Fingerprint Home for use as a home button.</string>
+    <string name="button_capacitive">Button Capacitive</string>
+	<string name="button_capacitive_swap">Button Capacitive Swap</string>
+    <string name="button_capacitive_swap_summary">Enable Button Capacitive Swap for switch the order of recents and back buttons.</string>
 	
     <!-- I/O Scheduler -->
     <string name="internal_storage">Internal Storage</string>

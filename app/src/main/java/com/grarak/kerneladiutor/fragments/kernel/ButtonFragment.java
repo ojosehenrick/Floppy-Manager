@@ -58,6 +58,10 @@ public class ButtonFragment extends RecyclerViewFragment {
 		if (mButton.hasFPWake() || mButton.hasFPBoost() || mButton.hasFPHome()) {
 			fpInit(items);
 		}	
+		
+		if (mButton.hasCYTTSPButton() || mButton.hasTOUCHPANELButton()) {
+			buttonInit(items);			
+        }	
     }
 	
     @Override
@@ -122,4 +126,42 @@ public class ButtonFragment extends RecyclerViewFragment {
 		items.add(fpCard);
     }
 
+    private void buttonInit(List<RecyclerViewItem> items) {
+        CardView buttonCard = new CardView(getActivity());
+        buttonCard.setTitle(getString(R.string.button_capacitive));
+
+		if (mButton.hasCYTTSPButton()) {
+			SwitchView cyttspButton = new SwitchView();
+			cyttspButton.setTitle(getString(R.string.button_capacitive_swap));
+			cyttspButton.setSummary(getString(R.string.button_capacitive_swap_summary));
+			cyttspButton.setChecked(mButton.isCYTTSPButtonEnabled());
+			cyttspButton.addOnSwitchListener(new SwitchView.OnSwitchListener() {
+				@Override
+				public void onChanged(SwitchView switchView, boolean isChecked) {
+					mButton.enableCYTTSPButton(isChecked, getActivity());
+				}
+			});
+			
+			buttonCard.addItem(cyttspButton);
+
+		}
+		
+		if (mButton.hasTOUCHPANELButton()) {
+			SwitchView touchpanelButton = new SwitchView();
+			touchpanelButton.setTitle(getString(R.string.button_capacitive_swap));
+			touchpanelButton.setSummary(getString(R.string.button_capacitive_swap_summary));
+			touchpanelButton.setChecked(mButton.isTOUCHPANELButtonEnabled());
+			touchpanelButton.addOnSwitchListener(new SwitchView.OnSwitchListener() {
+				@Override
+				public void onChanged(SwitchView switchView, boolean isChecked) {
+					mButton.enableTOUCHPANELButton(isChecked, getActivity());
+				}
+			});
+			
+			buttonCard.addItem(touchpanelButton);
+
+		}
+		
+		items.add(buttonCard);
+    }
 }
