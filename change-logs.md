@@ -1,5 +1,8 @@
 # Change-logs
 
+## 48-1. January 02, 2019
+Changes: NavigationActivity: added Button section. ButtonFragment: move FP Boost and Wake for Button section. ButtonFragment: added FP key event, button swap and virtual. Many other internal improvement.
+
 ## 48. December 31, 2018
 *Release-tag: v6.13*
 Changes: Display & LED: Fixed Max Backlight Control for some devices. Display & LED: Updated Min Backlight Control for msm_drm devices (e.g. Pocophone). CPU: Added control over Dynamic Stune Boost. CPU: Added initial support for MSM Limiter (only newer versions). Battery: Aligned everything under one card. SmartPack: Disabled everything related to klte SmartPack-Kernel. SmartPack header image: Updated to work in Dark Mode. Misc changes.
