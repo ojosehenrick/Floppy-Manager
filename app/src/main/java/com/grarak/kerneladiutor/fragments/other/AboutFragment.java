@@ -137,7 +137,7 @@ public class AboutFragment extends RecyclerViewFragment {
         });
 
         about.addItem(updatecheck);
-        about.addItem(support);
+        /*about.addItem(support);*/
         about.addItem(sourcecode);
         about.addItem(changelogs);
         about.addItem(donatetome);
