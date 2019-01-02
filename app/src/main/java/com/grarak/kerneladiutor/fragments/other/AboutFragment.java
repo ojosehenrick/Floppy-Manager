@@ -122,7 +122,7 @@ public class AboutFragment extends RecyclerViewFragment {
         changelogs.setOnItemClickListener(new RecyclerViewItem.OnItemClickListener() {
             @Override
             public void onClick(RecyclerViewItem item) {
-                Utils.launchUrl("https://raw.githubusercontent.com/SmartPack/SmartPack-Kernel-Manager/master/change-logs.md", getActivity());
+                Utils.launchUrl("https://raw.githubusercontent.com/JonasCardoso/Floppy-Manager/master/change-logs.md", getActivity());
             }
         });
 

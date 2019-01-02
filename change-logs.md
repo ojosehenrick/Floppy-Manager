@@ -1,5 +1,11 @@
 # Change-logs
 
+## 47-2. December 27, 2018
+Changes: Misc: added fingerprint boost, added support to Underclock, added FP wake.
+	
+## 47-1. December 26, 2018
+Changes: LED section adapted to msm8996/pro (xiaomi). Battery section adapted to msm8996/pro (xiaomi).
+	
 ## 47. December 22, 2018
 *Release-tag: v6.12*
 Changes: SmartPack: Latest version: Improved update information. build: promote target SDK Version to 28 (Pie). Switch Thermal, IO, Entropy, Display & LED pages into card view (visual improvements). Moved almost all the SmartPack related stuff to a new place "com/smartpack/kernelmanager" (internal improvement).
