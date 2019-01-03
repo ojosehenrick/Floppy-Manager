@@ -783,15 +783,25 @@
     <string name="profileTile">Profile</string>
     <string name="spec_title">Performance Tweaks</string>
     <string name="spec_info">An adaptation of the Spectrum Manager by frap129.\nSelect one among the available pre-defined profiles.</string>
-    <string name="spec_balanced">Balanced</string>
-    <string name="spec_balanced_summary">The default kernel profile designed for smooth performance in basic tasks while maintaining fantastic battery.</string>
+    <string name="spec_balanced">Balanced Battery</string>
+    <string name="spec_balanced_summary">The default kernel profile designed for fantastic battery.</string>
+    <string name="spec_balanced2">Balanced Smooth</string>
+    <string name="spec_balanced2_summary">The default kernel profile designed for smooth performance in basic tasks while maintaining good battery.</string>
     <string name="spec_performance">Performance</string>
     <string name="spec_performance_summary">Tuned for top-tier performance in standard tasks with many fewer regressions than Balanced, but maintains battery by limiting graphics.</string>
+    <string name="spec_performance2">Performance Plus</string>
+    <string name="spec_performance2_summary">Tuned for top-tier performance in standard tasks with many fewer regressions than Peformance profile, but maintains battery by limiting graphics.</string>
     <string name="spec_battery">Battery</string>
     <string name="spec_battery_summary">The ultra-conservative profile that lets performance take a hit in order to archive long-lasting battery life.</string>
+    <string name="spec_battery2">Ultra Battery</string>
+    <string name="spec_battery2_summary">The ultra-mega-power-super-blaster-conservative profile that lets performance take a hit in order to archive long-lasting battery life.</string>
     <string name="spec_gaming">Gaming</string>
     <string name="spec_gaming_summary">Identical to performance in most areas other than the unlocked Graphics performance.</string>
-
+    <string name="spec_gaming2">Gates of Hell</string>
+    <string name="spec_gaming2_summary">Your cell phone can become as hot as the Vesuvius volcano, but do not worry.</string>
+    <string name="spec_felipe">Felipe Mode</string>
+    <string name="spec_felipe_summary">Profile blessed by the Supreme Lord of the Lanterns.</string>	
+	
     <!-- Custom Controls -->
     <string name="welcome">Welcome</string>
     <string name="custom_controls_summary">In this section you can create or import custom controls, which don\'t exist in the app (yet).</string>

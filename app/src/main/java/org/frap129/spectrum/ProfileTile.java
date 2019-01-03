@@ -67,35 +67,91 @@ public class ProfileTile extends TileService {
             newLabel = "No Spectrum support";
             newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_logo);
             newState = Tile.STATE_INACTIVE;
-        }else {
-            if (isActive && click) {
-		newLabel = "Gaming";
-		newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_game);
-		newState = Tile.STATE_ACTIVE;
-		click = false;
-		Spectrum.setProfile(3);
-		Prefs.saveInt("spectrum_profile", 3, getApplicationContext());
-            } else if (!isActive && click) {
-		newLabel = "Battery";
-		newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_battery);
-		newState = Tile.STATE_ACTIVE;
-		click = true;
-		Spectrum.setProfile(2);
-		Prefs.saveInt("spectrum_profile", 2, getApplicationContext());
-            } else if (isActive && !click){
-		newLabel = "Performance";
-		newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_performance);
-		newState = Tile.STATE_ACTIVE;
-		click = true;
-		Spectrum.setProfile(1);
-		Prefs.saveInt("spectrum_profile", 1, getApplicationContext());
-            } else {
-		newLabel = "Balance";
-		newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_balanced);
-		newState = Tile.STATE_ACTIVE;
-		click = false;
-		Spectrum.setProfile(0);
-		Prefs.saveInt("spectrum_profile", 0, getApplicationContext());
+        }else 
+		{
+            if (isActive && click) 
+			{
+				newLabel = "Gates of Hell";
+				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_game);
+				newState = Tile.STATE_ACTIVE;
+				click = false;
+				Spectrum.setProfile(5);
+				Prefs.saveInt("spectrum_profile", 5, getApplicationContext());
+            } 
+			else if (!isActive && click) 
+			{
+				newLabel = "Gaming";
+				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_game);
+				newState = Tile.STATE_ACTIVE;
+				click = false;
+				Spectrum.setProfile(3);
+				Prefs.saveInt("spectrum_profile", 3, getApplicationContext());
+
+            } 
+			else if (!isActive && click) 
+			{
+				newLabel = "Performance Plus";
+				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_game);
+				newState = Tile.STATE_ACTIVE;
+				click = false;
+				Spectrum.setProfile(6);
+				Prefs.saveInt("spectrum_profile", 6, getApplicationContext());
+
+            }			
+			else if (!isActive && click) 
+			{
+                newLabel = "Performance";
+				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_performance);
+				newState = Tile.STATE_ACTIVE;
+				click = true;
+				Spectrum.setProfile(1);
+				Prefs.saveInt("spectrum_profile", 1, getApplicationContext());
+
+            } 
+			else if (isActive && !click)
+			{
+				newLabel = "Balance Smooth";
+				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_balanced);
+				newState = Tile.STATE_ACTIVE;
+				click = false;
+				Spectrum.setProfile(4);
+				Prefs.saveInt("spectrum_profile", 4, getApplicationContext());
+            } 
+			else if (isActive && !click)
+			{
+				newLabel = "Balance Battery";
+				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_balanced);
+				newState = Tile.STATE_ACTIVE;
+				click = false;
+				Spectrum.setProfile(0);
+				Prefs.saveInt("spectrum_profile", 0, getApplicationContext());
+            }
+			else if (isActive && !click)
+			{
+				newLabel = "Battery";
+				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_battery);
+				newState = Tile.STATE_ACTIVE;
+				click = true;
+				Spectrum.setProfile(2);
+				Prefs.saveInt("spectrum_profile", 2, getApplicationContext());
+            }			
+			else if (isActive && !click)
+			{
+				newLabel = "Ultra Battery";
+				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_battery);
+				newState = Tile.STATE_ACTIVE;
+				click = true;
+				Spectrum.setProfile(7);
+				Prefs.saveInt("spectrum_profile", 7, getApplicationContext());
+            }
+			else 
+			{
+				newLabel = "Felipe Mode";
+				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_battery);
+				newState = Tile.STATE_ACTIVE;
+				click = true;
+				Spectrum.setProfile(8);
+				Prefs.saveInt("spectrum_profile", 8, getApplicationContext());
             }
         }
 
@@ -124,36 +180,86 @@ public class ProfileTile extends TileService {
         int newState;
 
         // Update tile
-        if (!(Spectrum.supported())) {
+        if (!(Spectrum.supported())) 
+		{
             newLabel = "No Spectrum support";
             newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_logo);
             newState = Tile.STATE_INACTIVE;
-        }else {
-            if (profile == 3){
-		newLabel = "Gaming";
-		newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_game);
-		newState = Tile.STATE_ACTIVE;
-		click = false;
-            } else if (profile == 2){
-		newLabel = "Battery";
-		newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_battery);
-		newState = Tile.STATE_ACTIVE;
-		click = true;
-            } else if (profile == 1){
-		newLabel = "Performance";
-		newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_performance);
-		newState = Tile.STATE_ACTIVE;
-		click = true;
-            } else if (profile == 0){
-		newLabel = "Balance";
-		newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_balanced);
-		newState = Tile.STATE_ACTIVE;
-		click = false;
-            } else {
-		newLabel = "Custom";
-		newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_logo);
-		newState = Tile.STATE_ACTIVE;
-		click = false;
+        }
+		else 
+		{
+            if (profile == 5)
+			{
+				newLabel = "Gates of Hell";
+				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_game);
+				newState = Tile.STATE_ACTIVE;
+				click = false;
+            } 
+			else if (profile == 3)
+			{
+				newLabel = "Gaming";
+				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_game);
+				newState = Tile.STATE_ACTIVE;
+				click = false;
+
+            } 
+			else if (profile == 4)
+			{
+				newLabel = "Performance Plus";
+				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_performance);
+				newState = Tile.STATE_ACTIVE;
+				click = true;
+
+            } 
+			else if (profile == 1)
+			{
+				newLabel = "Performance";
+				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_performance);
+				newState = Tile.STATE_ACTIVE;
+				click = true;
+
+            } 
+			else if (profile == 4)
+			{
+				newLabel = "Balance Smooth";
+				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_balanced);
+				newState = Tile.STATE_ACTIVE;
+				click = false;
+            } 
+			else if (profile == 0)
+			{
+				newLabel = "Balance Battery";
+				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_balanced);
+				newState = Tile.STATE_ACTIVE;
+				click = false;
+            } 
+			else if (profile == 2)
+			{
+				newLabel = "Battery";
+				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_battery);
+				newState = Tile.STATE_ACTIVE;
+				click = true;
+            }
+			else if (profile == 7)
+			{
+				newLabel = "Ultra Battery";
+				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_battery);
+				newState = Tile.STATE_ACTIVE;
+				click = true;
+            }
+			else if (profile == 8)
+			{
+				newLabel = "Felipe Mode";
+				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_battery);
+				newState = Tile.STATE_ACTIVE;
+				click = true;
+            } 			
+			else 
+			{
+				newLabel = "Custom";
+				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_logo);
+				newState = Tile.STATE_ACTIVE;
+				click = false;
             }
         }
 

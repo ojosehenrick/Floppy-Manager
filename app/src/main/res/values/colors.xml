@@ -21,12 +21,17 @@
     <color name="grey_accent">#bdbdbd</color>
     <color name="blue_grey_accent">#78909c</color>
     <color name="teal_accent">#26a69a</color>
-
-    <color name="colorBalance">#43a047</color>
-    <color name="colorPerformance">#fb8c00</color>
-    <color name="colorBattery">#03a9f4</color>
+	
+    <color name="colorGaming2">#960000</color>
     <color name="colorGaming">#ef5350</color>
-
+	<color name="colorPerformance2">#ca7100</color>
+    <color name="colorPerformance">#fb8c00</color>
+	<color name="colorBalance2">#2c6e2f</color>
+    <color name="colorBalance">#52bf56</color>
+    <color name="colorBattery">#035ef4</color>
+    <color name="colorBattery2">#03a9f4</color>	
+    <color name="colorFelipeMode">#939393</color>	
+	
     <color name="rcBackground_light">#dcdcdc</color>
     <color name="rcBackground_dark">#616161</color>
 </resources>
