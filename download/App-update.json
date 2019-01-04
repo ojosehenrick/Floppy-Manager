@@ -1,11 +1,11 @@
 {
-  "latestVersion": "0.9.10.3-02012019",
-  "url": "https://github.com/JonasCardoso/Floppy-Manager/blob/master/download/com.jonas.floppymanager-v0.9.10.3-02012019.apk?raw=true",
+  "latestVersion": "0.9.10.3-04012019",
+  "url": "https://github.com/JonasCardoso/Floppy-Manager/blob/master/download/com.jonas.floppymanager-v0.9.10.3-04012019.apk?raw=true",
   "releaseNotes": [
     "Change-log:",
-    "- NavigationActivity: added Button section",
-    "- ButtonFragment: move FP Boost and Wake for Button section",
-    "- ButtonFragment: added FP key event, button swap and virtual",
+    "- SpectrumFragment: added more profiles",
+    "- Spectrum: added support for init",
+    "- Spectrum: added support to apply on boot",
     "- Many other internal improvement." 
   ]
 }
