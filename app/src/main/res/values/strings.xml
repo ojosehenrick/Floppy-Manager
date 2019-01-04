@@ -801,6 +801,8 @@
     <string name="spec_gaming2_summary">Your cell phone can become as hot as the Vesuvius volcano, but do not worry.</string>
     <string name="spec_felipe">Felipe Mode</string>
     <string name="spec_felipe_summary">Profile blessed by the Supreme Lord of the Lanterns.</string>	
+    <string name="spec_none">None</string>
+    <string name="spec_none_summary">Not apply any profile.</string>
 	
     <!-- Custom Controls -->
     <string name="welcome">Welcome</string>

@@ -27,6 +27,7 @@ import com.grarak.kerneladiutor.utils.Prefs;
 import com.grarak.kerneladiutor.utils.Utils;
 import com.grarak.kerneladiutor.utils.root.RootUtils;
 
+import org.frap129.spectrum.Spectrum;
 /**
  * Created by willi on 03.05.16.
  */
@@ -39,6 +40,18 @@ public class OnBootReceiver extends BroadcastReceiver {
             su.runCommand("echo /testRoot/");
             if (!su.mDenied) {
                 Utils.startService(context, new Intent(context, ApplyOnBootService.class));
+            }
+        }
+        if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
+            RootUtils.SU su = new RootUtils.SU();
+            su.runCommand("echo /testRoot/");
+            if (!su.mDenied) 
+			{ 
+		        if (Spectrum.getProfile()!="9")
+				{
+                    int prof = Utils.strToInt(Spectrum.getProfile());
+                    RootUtils.runCommand("setprop persist.spectrum.profile " + prof);
+				}
             }
             su.close();
         }

@@ -71,7 +71,8 @@ public class SpectrumFragment extends RecyclerViewFragment {
         final int batColor = ContextCompat.getColor(getContext(), R.color.colorBattery); //2
         final int bat2Color = ContextCompat.getColor(getContext(), R.color.colorBattery2); //7
         final int felColor = ContextCompat.getColor(getContext(), R.color.colorFelipeMode); //8
-
+        final int noneColor = ContextCompat.getColor(getContext(), R.color.colorNone); //8
+		
         //CardView Gaming2
         final CardView card5 = new CardView(getActivity());
         card5.setTitle(getString(R.string.spec_gaming2));
@@ -256,6 +257,27 @@ public class SpectrumFragment extends RecyclerViewFragment {
         card8.addItem(desc8);
         items.add(card8);
         //CardView FelipeMode
+	
+        //CardView None
+        final CardView card9 = new CardView(getActivity());
+        card9.setTitle(getString(R.string.spec_none));
+        card9.setExpandable(false);
+
+        final DescriptionView desc9 = new DescriptionView();
+        desc9.setSummary(getString(R.string.spec_none_summary));
+        desc9.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_spectrum_balanced));
+
+        card9.setOnItemClickListener(new CardView.OnItemClickListener() {
+            @Override
+            public void onClick(RecyclerViewItem item) {
+                cardClick(card9, desc9, 9, noneColor);
+            }
+
+        });
+
+        card9.addItem(desc9);
+        items.add(card9);
+        //CardView None
 		
         //Detects the selected profile on launch
         int mProfile = Prefs.getInt("spectrum_profile", 0, getActivity());
@@ -322,6 +344,13 @@ public class SpectrumFragment extends RecyclerViewFragment {
             desc8.GrxSetInitSelection(true, Color.WHITE);
             oldCard = card8;
             oldDesc = desc8;
+        }
+		else if(mProfile == 9)
+		{
+            card9.GrxSetInitSelection(true, noneColor);
+            desc9.GrxSetInitSelection(true, Color.WHITE);
+            oldCard = card9;
+            oldDesc = desc9;
         }		
     }
 

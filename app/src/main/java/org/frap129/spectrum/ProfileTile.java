@@ -144,7 +144,7 @@ public class ProfileTile extends TileService {
 				Spectrum.setProfile(7);
 				Prefs.saveInt("spectrum_profile", 7, getApplicationContext());
             }
-			else 
+			else if (isActive && !click)
 			{
 				newLabel = "Felipe Mode";
 				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_battery);
@@ -152,6 +152,15 @@ public class ProfileTile extends TileService {
 				click = true;
 				Spectrum.setProfile(8);
 				Prefs.saveInt("spectrum_profile", 8, getApplicationContext());
+            }
+			else 
+			{
+				newLabel = "None";
+				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_balanced);
+				newState = Tile.STATE_ACTIVE;
+				click = true;
+				Spectrum.setProfile(9);
+				Prefs.saveInt("spectrum_profile", 9, getApplicationContext());
             }
         }
 
@@ -251,6 +260,13 @@ public class ProfileTile extends TileService {
 			{
 				newLabel = "Felipe Mode";
 				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_battery);
+				newState = Tile.STATE_ACTIVE;
+				click = true;
+            } 
+			else if (profile == 9)
+			{
+				newLabel = "None";
+				newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_balanced);
 				newState = Tile.STATE_ACTIVE;
 				click = true;
             } 			

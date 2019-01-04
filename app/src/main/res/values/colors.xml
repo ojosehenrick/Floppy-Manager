@@ -31,6 +31,7 @@
     <color name="colorBattery">#035ef4</color>
     <color name="colorBattery2">#03a9f4</color>	
     <color name="colorFelipeMode">#939393</color>	
+    <color name="colorNone">#ab47Bc</color>
 	
     <color name="rcBackground_light">#dcdcdc</color>
     <color name="rcBackground_dark">#616161</color>
