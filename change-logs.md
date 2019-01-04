@@ -1,5 +1,9 @@
 # Change-logs
 
+## 49. January 03, 2018
+*Release-tag: v6.14*
+Changes: CPU: CPU Boost: added advanced parameters of Dynamic Stune Boost and moved position to bottom. Screen: KCAL: update a bunch of parameters for msm_drm.
+
 ## 48-1. January 02, 2019
 Changes: NavigationActivity: added Button section. ButtonFragment: move FP Boost and Wake for Button section. ButtonFragment: added FP key event, button swap and virtual. Many other internal improvement.
 
