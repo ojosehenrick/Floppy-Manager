@@ -63,7 +63,7 @@ public class ProfileTile extends TileService {
         int newState;
 
         // Update tile and set profile
-        if (!(Spectrum.supported())) {
+        if (!(Spectrum.supported_root() || Spectrum.supported_init())) {
             newLabel = "No Spectrum support";
             newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_logo);
             newState = Tile.STATE_INACTIVE;
@@ -180,7 +180,7 @@ public class ProfileTile extends TileService {
         int newState;
 
         // Update tile
-        if (!(Spectrum.supported())) 
+        if (!(Spectrum.supported_root() || Spectrum.supported_init())) 
 		{
             newLabel = "No Spectrum support";
             newIcon = Icon.createWithResource(getApplicationContext(), R.drawable.ic_spectrum_logo);
