@@ -1,9 +1,9 @@
 # Change-logs
 
-## 49-1. January 04, 2018
+## 49-1. January 04, 2019
 Changes: SpectrumFragment: added more profiles. Spectrum: added support for init. Spectrum: added support to apply on boot.
 
-## 49. January 03, 2018
+## 49. January 03, 2019
 *Release-tag: v6.14*
 Changes: CPU: CPU Boost: added advanced parameters of Dynamic Stune Boost and moved position to bottom. Screen: KCAL: update a bunch of parameters for msm_drm.
 
