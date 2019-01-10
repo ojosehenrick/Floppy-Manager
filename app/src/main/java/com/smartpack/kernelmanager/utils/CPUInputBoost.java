@@ -55,6 +55,8 @@ public class CPUInputBoost {
     private static final String CPU_INPUT_BOOST_LF = "/input_boost_freq_lp";
     private static final String CPU_INPUT_BOOST_HF = "/input_boost_freq_hp";
 
+    private static final String DYN_STUNE_BOOST = "/dynamic_stune_boost";
+
     private String PARANT;
     private String INPUT_BOOST_DURATION;
 
@@ -138,12 +140,24 @@ public class CPUInputBoost {
         return Utils.existFile(PARANT + CPU_INPUT_BOOST_HF);
     }
 
+    public void setDynStuneBoost(int value, Context context) {
+        run(Control.write(String.valueOf(value), PARANT + DYN_STUNE_BOOST), PARANT + DYN_STUNE_BOOST, context);
+    }
+
+    public int getDynStuneBoost() {
+        return Utils.strToInt(Utils.readFile(PARANT + DYN_STUNE_BOOST));
+    }
+
+    public boolean hasDynStuneBoost() {
+        return Utils.existFile(PARANT + DYN_STUNE_BOOST);
+    }
+
     public boolean supported() {
         return PARANT != null;
     }
 
     private static void run(String command, String id, Context context) {
-        Control.runSetting(command, ApplyOnBootFragment.CPU_HOTPLUG, id, context);
+        Control.runSetting(command, ApplyOnBootFragment.CPU, id, context);
     }
 
 }
