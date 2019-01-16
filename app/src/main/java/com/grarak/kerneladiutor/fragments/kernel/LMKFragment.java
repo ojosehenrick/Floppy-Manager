@@ -51,6 +51,7 @@ public class LMKFragment extends RecyclerViewFragment {
 
         sProfiles.clear();
         sProfiles.put(R.string.stock_config, "18432,23040,27648,32256,55296,80640");
+        sProfiles.put(R.string.floppy_config, "1536,3072,4096,21000,23000,25000");
         sProfiles.put(R.string.very_light, getAdjustedSize(1, 2, 3, 4, 5, 6));
         sProfiles.put(R.string.light, getAdjustedSize(2, 3, 4, 5, 6, 7));
         sProfiles.put(R.string.medium, getAdjustedSize(3, 4, 5, 6, 7, 9));
