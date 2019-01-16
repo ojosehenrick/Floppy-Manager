@@ -608,6 +608,31 @@
   <string name="poolsize">PoolSize</string>
   <string name="read">Leitura</string>
   <string name="write">Gravação</string>
+  <!-- Performance Tweaks -->
+  <string name="spectrum">Spectrum</string>
+    <string name="profileTile">Perfil</string>
+    <string name="spec_title">Ajustes de Performance</string>
+    <string name="spec_info">Uma adaptação do Spectrum Manager, de frap129.\nSelecione um dos perfis predefinidos.</string>
+    <string name="spec_balanced">Balanceado (Bateria)</string>
+    <string name="spec_balanced_summary">O perfil padrão do kernel para ótima bateria.</string>
+    <string name="spec_balanced2">Balanceado (Performance)</string>
+    <string name="spec_balanced2_summary">O perfil padrão do kernel projetado para um desempenho suave em tarefas básicas, mantendo uma boa bateria.</string>
+    <string name="spec_performance">Performance</string>
+    <string name="spec_performance_summary">Ajustado para bom desempenho em tarefas padrão com muito menos regressões que o perfil Balanceado, mas mantém bateria limitando gráficos.</string>
+    <string name="spec_performance2">Performance Plus</string>
+    <string name="spec_performance2_summary">Ajustado para desempenho de alto nível em tarefas padrão com muito menos regressões do que o perfil Performance, mas mantém a bateria limitando os gráficos.</string>
+    <string name="spec_battery">Bateria</string>
+    <string name="spec_battery_summary">O perfil conservador que permite que o desempenho sofra um impacto para alcançar uma bateria de longa duração.</string>
+    <string name="spec_battery2">Ultra Bateria</string>
+    <string name="spec_battery2_summary">O perfil conservador ultra-mega-poder-super-blaster que permite que o desempenho sofra um impacto para alcançar uma longa duração da bateria.</string>
+    <string name="spec_gaming">Jogos</string>
+    <string name="spec_gaming_summary">Idêntico ao perfil Performance na maioria das áreas, além do desempenho gráfico a mais.</string>
+    <string name="spec_gaming2">Portões do Inferno</string>
+    <string name="spec_gaming2_summary">Seu celular pode ficar tão quente quanto o vulcão Vesúvio, mas não se preocupe.</string>
+    <string name="spec_felipe">Modo Felipe</string>
+    <string name="spec_felipe_summary">Perfil abençoado pelo Supremo Senhor das Lanternas.</string> 
+    <string name="spec_none">Nenhum</string>
+    <string name="spec_none_summary">Não aplicar nenhum perfil.</string>
   <!-- Misc -->
   <string name="android_logger">Android log</string>
   <string name="crc">Software de controle de CRC</string>
